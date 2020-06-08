@@ -23,7 +23,7 @@ class Transaction {
   @Column({ type: 'decimal', precision: 2 })
   value: number;
 
-  @ManyToOne(() => Category)
+  @ManyToOne(() => Category, category => category.transaction, { eager: true })
   @JoinColumn({ name: 'category_id' })
   category: Category;
 
